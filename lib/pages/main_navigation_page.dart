@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
+// Tab 0: Beranda & Katalog Produk (Modul M11)
 import 'dashboard_page.dart';
+// Tab 3: Profil Toko & Kelola Karyawan (Modul M12)
+import 'profil_toko_page.dart';
 
 class MainNavigationPage extends StatefulWidget {
   const MainNavigationPage({super.key});
@@ -10,28 +13,28 @@ class MainNavigationPage extends StatefulWidget {
 }
 
 class _MainNavigationPageState extends State<MainNavigationPage> {
+  // Indeks tab aktif (0 = Beranda)
   int _currentIndex = 0;
 
   final List<Widget> _pages = [
+    // 0: Beranda
     const DashboardPage(),
+    // 1: Kasir (placeholder M14)
     const Center(
       child: Text(
         'Menu 2: Transaksi Kasir POS (Modul M14)',
         style: TextStyle(fontSize: 16),
       ),
     ),
+    // 2: Riwayat (placeholder M14)
     const Center(
       child: Text(
-        'Menu 3: Riwayat Penjualan & Laporan (Modul M12)',
+        'Menu 3: Riwayat Penjualan & Laporan (Modul M14)',
         style: TextStyle(fontSize: 16),
       ),
     ),
-    const Center(
-      child: Text(
-        'Menu 4: Profil Toko & Pengaturan (Modul M12)',
-        style: TextStyle(fontSize: 16),
-      ),
-    ),
+    // 3: Toko (M12)
+    const ProfilTokoPage(),
   ];
 
   @override
@@ -39,12 +42,12 @@ class _MainNavigationPageState extends State<MainNavigationPage> {
     return Scaffold(
       body: _pages[_currentIndex],
       bottomNavigationBar: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: Color(0x14000000),
+              color: Colors.black.withValues(alpha: 0.08),
               blurRadius: 10,
-              offset: Offset(0, -2),
+              offset: const Offset(0, -2),
             ),
           ],
         ),
